@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kiim — кийим сатуу жана сатып алуу</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#">kiim</a>
+  <input id="search" type="search" placeholder="Кийим же шаар издөө…" aria-label="Издөө">
+  <button class="btn" id="openForm" type="button">Кийим сатуу</button>
+</header>
+
+<section class="hero">
+  <img src="hero.jpg" alt="kiim — кийим сатуу" onerror="this.remove()">
+  <div class="hero-text">
+    <h1>Кийилген кийимге жаңы ээ тап</h1>
+    <p>Кыргызстан боюнча кийим сатып алыңыз жана сатыңыз.</p>
+  </div>
+</section>
+
+<main>
+  <div class="chips" id="chips" role="tablist" aria-label="Категориялар"></div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>Эч нерсе табылган жок. Башка сөз менен издеп көрүңүз же өзүңүз жарыялаңыз.</p>
+</main>
+
+<dialog id="dlg">
+  <form id="form" novalidate>
+    <h2>Кийим сатуу</h2>
+    <label>Аталышы
+      <input name="title" required maxlength="60" placeholder="Мис: Кышкы куртка">
+    </label>
+    <div class="row">
+      <label>Баасы (сом)
+        <input name="price" type="number" min="1" required inputmode="numeric" placeholder="1500">
+      </label>
+      <label>Өлчөмү
+        <select name="size" required></select>
+      </label>
+    </div>
+    <div class="row">
+      <label>Категориясы
+        <select name="category" required></select>
+      </label>
+      <label>Абалы
+        <select name="condition" required></select>
+      </label>
+    </div>
+    <label>Шаары
+      <select name="city" required></select>
+    </label>
+    <label>Сүрөт
+      <input name="photo" type="file" accept="image/*" required>
+    </label>
+    <img id="preview" alt="" hidden>
+    <label>Кыскача сүрөттөмө
+      <textarea name="desc" rows="3" maxlength="300" placeholder="Түсү, бренди, кемчилиги…"></textarea>
+    </label>
+    <p class="error" id="formError" role="alert" hidden></p>
+    <div class="actions">
+      <button type="button" class="ghost" id="cancel">Жабуу</button>
+      <button type="submit" class="btn">Жарыялоо</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
